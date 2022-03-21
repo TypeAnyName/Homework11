@@ -16,4 +16,11 @@ def page_profile(uid):
     return render_template("single.html", candidate_by_id=candidate_by_id)
 
 
+@app.route("/search/<name>")
+def show_names(name):
+    candidate = utils.get_candidates_by_name(name)
+    lenght = len(candidate)
+    return render_template('search.html', candidate=candidate, lenght=lenght)
+
+
 app.run()

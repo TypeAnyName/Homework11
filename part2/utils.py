@@ -10,11 +10,15 @@ def load_candidate_from_json():
 
 def get_candidate(id):
     candidate_list = load_candidate_from_json()
-    candidate_id = []
     for candidate in candidate_list:
         if candidate["id"] == id:
-            candidate_id.append(candidate)
-    return candidate_id
+            return {
+                'name': candidate["name"],
+                'position': candidate['position'],
+                'picture': candidate["picture"],
+                "skills": candidate["skills"],
+            }
+    return {'not_found': "Ничего нет:("}
 
 
 def get_candidates_by_name(name):
@@ -33,6 +37,5 @@ def get_candidates_by_skill(skill):
         if skill in candidate["skills"].split(", "):
             candidate_skill.append(candidate)
     return candidate_skill
-
 
 

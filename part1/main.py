@@ -7,7 +7,7 @@ app = Flask(__name__,template_folder="../templates")
 def page_index():
     name = "Ivan"
     number = "132134"
-    return render_template("code.html", name=name, number=number)
+    return render_template("profile.html", name=name, number=number)
 
 
 app.run()

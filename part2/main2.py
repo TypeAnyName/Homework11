@@ -23,4 +23,13 @@ def show_names(name):
     return render_template('search.html', candidate=candidate, lenght=lenght)
 
 
-app.run()
+@app.route("/skill/<skill>")
+def show_skills(skill):
+    candidate = utils.get_candidates_by_skill(skill)
+    lenght = len(candidate)
+    skills = skill
+    return render_template('skill.html', candidate=candidate, lenght=lenght, skills=skills)
+
+
+if __name__ == "__main__":
+    app.run()
